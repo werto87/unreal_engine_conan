@@ -60,7 +60,7 @@ in the project root run:
 ```
 conan install . --output-folder conanbuild --build missing --deployer full_deploy -s tools.cmake.cmaketoolchain:generator=Ninja
 ```
-- now copy the MyProject.Build.cs file from this project into the 'Source/MyProject' folder of your project and change the name so it matches the name of your project
+- now copy the MyProject.Build.cs file from this project into the 'Source/MyProject' folder of your project and change the file name and also the class name so it matches the name of your project
 - press ctrl + shift + b to open the 'select the build task to run' combobox
 - select 'MyProject Win64 Development Rebuild' (where MyProject is the name of your project)
 - go to 'Run and Debug' and press the play button to start the game
