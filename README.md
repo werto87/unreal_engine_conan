@@ -66,7 +66,7 @@ conan install . --output-folder conanbuild --build missing --deployer full_deplo
 - go to 'Run and Debug' and press the play button to start the game
 
 
-### problems compiling and linking unreal engine source with your dependencies
+### tips and tricks
 #### unreal engine defines macros which make it hard to compile your dependencies with it
 unreal engine defines lots of macros which can interfere with your dependencies so use 'UndefineMacros_UE_4.17.h' and 'RedefineMacros_UE_4.17.h'
 ```
@@ -86,6 +86,8 @@ put this in front of your include which uses openssl
 #pragma warning(pop)
 ```
 
+#### intellisense is not working properly
+after you add a new dependency or some new files open unreal editor and select in the menu bar 'Tools' 'Refresh Visual Studio Code Project' (it is under the 'PROGRAMMING' group)
 
 
 
