@@ -2,7 +2,7 @@
 Shows how to use conan2 together with unreal engine 5
 
 # Windows Setup
-## Prequesits
+## Prerequisites
 - Ninja
 - Cmake
 - Conan 2.x.y
