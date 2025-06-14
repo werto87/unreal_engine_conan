@@ -67,13 +67,18 @@ conan install . --output-folder conanbuild --build missing --deployer full_deplo
 
 
 ### tips and tricks
-#### unreal engine defines macros which make it hard to compile your dependencies with it
-unreal engine defines lots of macros which can interfere with your dependencies so use 'UndefineMacros_UE_4.17.h' and 'RedefineMacros_UE_4.17.h'
+#### unreal engine makes it hard to compile your dependencies with it
+- unreal engine defines lots of macros which can interfere with your dependencies so use 'UndefineMacros_UE_4.17.h' and 'RedefineMacros_UE_4.17.h'
+- unreal engine sets some checks which can fail your build so use THIRD_PARTY_INCLUDES_START and THIRD_PARTY_INCLUDES_END
+example usage
 ```
+THIRD_PARTY_INCLUDES_START
 #include "UndefineMacros_UE_4.17.h"
 #include "Your/Dependency/yourDep.h"
 #include "RedefineMacros_UE_4.17.h"
+THIRD_PARTY_INCLUDES_END
 ```
+
 #### unreal engine defines 'UI' as namespace and this clashes with the 'UI'-Symbol from openssl/ui.h also there are some warnings coming from openssl
 put this in front of your include which uses openssl
 ```
