@@ -56,6 +56,7 @@ Shows how to use conan2 together with unreal engine 5
 tools.build:cxxflags=["-DWINVER=0x0A00", "-D_WIN32_WINNT=0x0A00", "/EHsc"]
 ```
 - copy the conanfile.py file from this project into your project root
+- add your dependencies in the conanfile.py
 in the project root run:
 ```
 conan install . --output-folder conanbuild --build missing --deployer full_deploy -s tools.cmake.cmaketoolchain:generator=Ninja
