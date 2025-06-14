@@ -12,7 +12,8 @@ class UnrealDepsConan(ConanFile):
     generators = "CMakeDeps"
 
     def requirements(self):
-        self.requires("my_web_socket/0.1.3")
+        # replace 'pass' with your dependency
+        pass
 
     def generate(self):
         # --- Direct dependencies ---
