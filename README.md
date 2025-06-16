@@ -92,8 +92,28 @@ put this in front of your include which uses openssl
 #pragma warning(pop)
 ```
 
-#### intellisense is not working properly
-after you add a new dependency or some new files open unreal editor and select in the menu bar 'Tools' 'Refresh Visual Studio Code Project' (it is under the 'PROGRAMMING' group)
+#### after you added new files you need to regenerate vs code files you can use a script to make it more convenient
+for example:
+```
+function update_vs_project_modern_durak_unreal {
+    $pathToUnrealBuildTool = "C:\Program Files\Epic Games\UE_5.5\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll"
+    $pathToUprojectFile = "C:\workspace\modern_durak_unreal\modern_durak_unreal.uproject"
+    $pathToCodeWorkspaceFile = "C:\workspace\modern_durak_unreal\modern_durak_unreal.code-workspace"
+    $exeName = "MyProject.exe"
+
+    dotnet $pathToUnrealBuildTool `
+        -projectfiles `
+        -project $pathToUprojectFile `
+        -game `
+        -rocket `
+        -progress `
+        -target=modern_durak_unreal
+
+        (Get-Content $pathToCodeWorkspaceFile -Raw) `
+          -replace 'UnrealGame\.exe', $exeName `
+          | Set-Content $pathToCodeWorkspaceFile
+}
+```
 
 
 
